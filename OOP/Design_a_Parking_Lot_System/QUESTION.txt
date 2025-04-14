@@ -1,0 +1,26 @@
+Question: Design a Parking Lot System
+You need to design a parking lot system using Object-Oriented Programming (OOP) principles. The system should have the following requirements:
+
+*The parking lot has multiple levels, and each level has multiple parking spots.
+
+*There are different types of vehicles: motorcycles, cars, and buses.
+
+*A motorcycle can park in a motorcycle spot or a compact spot.
+
+*A car can park in a compact spot or a large spot.
+
+*A bus requires five consecutive large spots to park.
+
+*The system should support adding and removing vehicles from the parking lot.
+
+*Implement methods to check if the parking lot is full.
+
+Follow-up:
+*How would you implement a strategy to find the nearest available parking spot?
+
+*What modifications would you need to make if new types of vehicles are introduced?
+
+Task:
+Design the classes and relationships using encapsulation, inheritance, and polymorphism.
+
+Implement the core methods needed for parking and removing vehicles.
