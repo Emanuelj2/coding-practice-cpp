@@ -53,7 +53,25 @@ class BTree{
     }
 
     //LEVEL ORDER (use a queue)
+    void levelorder(Node<T> *tree){
+        //check if the tree is empty
+        if(tree == nullptr){
+            return;
+        }
+        queue<Node<T>*> q;
+        q.push(tree);
+        
+        while(!q.empty()){
+            Node<T> *curr = q.front();
+            q.pop();
 
+            if(curr != nullptr){
+                cout << curr->data << " ";
+                q.push(curr->left);
+                q.push(curr->right);
+            }
+        }
+    }
 
     //DISPLAY METHOD
     void print(string indent, Node<T> * tree, char sign = ' '){
@@ -97,6 +115,10 @@ int main (){
 
   std::cout << "Post-order traversal: ";
   tree.postorder(tree.root);
+  std::cout << std::endl;
+
+  std::cout << "Level-order traversal: ";
+  tree.levelorder(tree.root);
   std::cout << std::endl;
 
     return 0;
