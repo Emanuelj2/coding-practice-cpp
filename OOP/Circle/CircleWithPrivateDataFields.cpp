@@ -8,10 +8,10 @@ Circle::Circle(double newRadius){
 }
 //accessors
 double Circle::getArea()const{
-    return radius;
+    return 3.14 * radius * radius;
 }
 double Circle::getRadius()const{
-    return 3.14 * (radius * radius);
+    return radius;
 }
 
 //mutators
