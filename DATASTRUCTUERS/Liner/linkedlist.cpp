@@ -88,16 +88,16 @@ public:
     }
 
     //insert a node after the given node val
-    bool insert_after(T val, T newNode){
+    bool insert_after(T val, T newVal){
         Node<T> * node = search(val);
         
-        if(node != nullptr){
+        if(node == nullptr){
             return false;
         }
-        Node<T> *newNode = new Node<T>(newNode);
-        
-        
-
+        Node<T> *newNode = new Node<T>(newVal);
+        newNode->next = node->next;
+        node->next = newNode;
+        return true;
     }
 
 
@@ -122,6 +122,9 @@ int main() {
     list.delete_node(10);
     list.printList(); // 5 -> 20 -> NULL
 
+    list.insert_after(20, 25);
+    list.printList(); // 5 -> 20 -> 25 -> NULL
+
     if (list.search(20)) {
         cout << "Found 20" << endl;
     } else {
@@ -129,7 +132,7 @@ int main() {
     }
 
     list.pop_front();
-    list.printList(); // 20 -> NULL
+    list.printList(); // 20 -> 25 -> NULL
 
     return 0;
 }
