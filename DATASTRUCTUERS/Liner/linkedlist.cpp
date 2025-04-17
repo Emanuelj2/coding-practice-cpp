@@ -76,6 +76,7 @@ public:
         return false;
     }
 
+    // delete the first node
     bool pop_front(){
         if(head == nullptr){
             return false;
@@ -84,6 +85,19 @@ public:
         head = head->next;
         delete temp;
         return true;
+    }
+
+    //insert a node after the given node val
+    bool insert_after(T val, T newNode){
+        Node<T> * node = search(val);
+        
+        if(node != nullptr){
+            return false;
+        }
+        Node<T> *newNode = new Node<T>(newNode);
+        
+        
+
     }
 
 
