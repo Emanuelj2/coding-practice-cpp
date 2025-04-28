@@ -76,6 +76,7 @@ public:
         return false;
     }
 
+    // delete the first node
     bool pop_front(){
         if(head == nullptr){
             return false;
@@ -83,6 +84,19 @@ public:
         Node<T>* temp = head;
         head = head->next;
         delete temp;
+        return true;
+    }
+
+    //insert a node after the given node val
+    bool insert_after(T val, T newVal){
+        Node<T> * node = search(val);
+        
+        if(node == nullptr){
+            return false;
+        }
+        Node<T> *newNode = new Node<T>(newVal);
+        newNode->next = node->next;
+        node->next = newNode;
         return true;
     }
 
@@ -108,6 +122,9 @@ int main() {
     list.delete_node(10);
     list.printList(); // 5 -> 20 -> NULL
 
+    list.insert_after(20, 25);
+    list.printList(); // 5 -> 20 -> 25 -> NULL
+
     if (list.search(20)) {
         cout << "Found 20" << endl;
     } else {
@@ -115,7 +132,7 @@ int main() {
     }
 
     list.pop_front();
-    list.printList(); // 20 -> NULL
+    list.printList(); // 20 -> 25 -> NULL
 
     return 0;
 }
